@@ -15,6 +15,7 @@ defs = Definitions(
     resources={
         "ses": AwsSesResource(
             region=settings.AWS_REGION,
+            # Use EnvVar instead of settings to properly censor keys in the UI
             access_key=EnvVar("AWS_SES_ACCESS_KEY"),
             secret_key=EnvVar("AWS_SES_SECRET_KEY"),
             sender_email=EnvVar("SENDER_EMAIL"),
